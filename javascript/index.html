@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="even-num-counter.js"></script>
+    <script type="text/javascript" src="guess-num.js"></script>
     <title>Learning JS</title>
 </head>
 <body>
-    <script>evenNumCounter();</script>
+    <input/>
+    <button>Acertei o número?</button>
+   
+    <script>
+    
+    var input = document.querySelector("input");
+    input.focus();
+    var button = document.querySelector("button");
+
+    button.onclick = guessNum;
+    
+    </script>
 </body>
 </html>
