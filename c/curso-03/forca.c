@@ -157,4 +157,6 @@ int main()
         printf("Voce ja deu %d chutes.\n", chutesdados);
         chuta();
     } while (!acertou() && !enforcou());
+
+    adicionapalavra();
 }
