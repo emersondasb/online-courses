@@ -2,9 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <locale.h>
 
 int main() {
-
+    setlocale(LC_ALL, "Portuguese");
     // imprimindo cabecalho bonito do jogo
     printf("\n\n");
     printf("          P  /_\\  P                              \n");
@@ -21,6 +22,7 @@ int main() {
     int acertou;
     int nivel;
     int totaldetentativas;
+    int i;
 
     // definindo a quantidade de pontos inicial
     double pontos = 1000;
@@ -49,7 +51,7 @@ int main() {
     }
 
     // loop principal do jogo
-    for(int i = 1; i <= totaldetentativas; i++) {
+    for(i = 1; i <= totaldetentativas; i++) {
 
         printf("-> Tentativa %d de %d\n", i, totaldetentativas);
 
