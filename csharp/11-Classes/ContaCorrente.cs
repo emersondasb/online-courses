@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _10_ByteBank
+namespace _11_Classes
 { 
     public class ContaCorrente
     {
-        public string titular;
+        public Cliente titular;
         public int agencia;
+        public int numero;
         public int conta;
         public double saldo = 100; // Definindo valor padrão para 100.
 

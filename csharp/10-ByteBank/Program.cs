@@ -17,6 +17,19 @@ namespace _10_ByteBank
             contaDoBruno.Sacar(50);
             Console.WriteLine(contaDoBruno.saldo);
 
+            contaDoBruno.Depositar(500);
+
+            ContaCorrente contaDaGabriela = new ContaCorrente();
+            contaDaGabriela.titular = "Gabriela";
+
+            Console.WriteLine("Saldo de Bruno: " + contaDoBruno.saldo);
+            Console.WriteLine("Saldo de Gabriela: " + contaDaGabriela.saldo);
+
+            contaDoBruno.Transferir(25, contaDaGabriela);
+
+            Console.WriteLine("Saldo de Bruno: " + contaDoBruno.saldo);
+            Console.WriteLine("Saldo de Gabriela: " + contaDaGabriela.saldo);
+
             Console.ReadKey();
         }
     }
