@@ -51,6 +51,10 @@
     <Compile Include="GerenciadorBonificacao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sistemas\FuncionarioAutenticavel.cs" />
+    <Compile Include="Sistemas\IAutenticavel.cs" />
+    <Compile Include="Sistemas\ParceiroComercial.cs" />
+    <Compile Include="Sistemas\SistemaInterno.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
