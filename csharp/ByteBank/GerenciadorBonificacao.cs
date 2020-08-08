@@ -11,8 +11,6 @@ namespace ByteBank
     {
         private double _totalBonificacao;
 
-
-
         public void Registrar(Funcionario funcionario)
         {
             _totalBonificacao += funcionario.GetBonificacao();
