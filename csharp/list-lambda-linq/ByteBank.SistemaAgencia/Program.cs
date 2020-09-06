@@ -16,17 +16,23 @@ namespace ByteBank.SistemaAgencia
         {
             var contas = new List<ContaCorrente>()
             {
-                new ContaCorrente(374, 522276),
-                new ContaCorrente(98, 43936),
-                new ContaCorrente(158, 335463),
-                new ContaCorrente(540, 563634)
+                new ContaCorrente(374, 3),
+                new ContaCorrente(98, 6),
+                new ContaCorrente(158, 5),
+                new ContaCorrente(540, 1),
+                null
             };
 
-            contas.Sort(new ComparadorContaCorrentePorAgencia());
-
             // contas.Sort();
+            // contas.Sort(new ComparadorContaCorrentePorAgencia());
 
-            foreach (var conta in contas)
+
+
+            var contasOrdenadas = contas
+                .Where(conta => conta != null)
+                .OrderBy(conta => conta.Numero);
+             
+            foreach (var conta in contasOrdenadas)
             {
                 Console.WriteLine($"Conta número: {conta.Numero}, Ag.: {conta.Agencia}");
             }
@@ -56,7 +62,7 @@ namespace ByteBank.SistemaAgencia
         static int SomarVarios(params int[] numeros)
         {
             int acumulador = 0;
-            foreach(int numero in numeros)
+            foreach (int numero in numeros)
             {
                 acumulador += numero;
             }
