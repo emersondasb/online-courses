@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Alura.Loja.Testes.ConsoleApp
 {
-    interface IProdutoDAO : IDisposable, I
+    interface IProdutoDAO : IDisposable
     {
         void Adicionar(Produto p);
         void Atualizar(Produto p);
