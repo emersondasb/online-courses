@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso de JavaScript</title>
+  </head>
+  <body>
+    <input type="text" id="entrada" />
+    <input type="button" id="botao" value="Adicionar" />
+    <ul></ul>
+
+    <script>
+      var nomes = ["Diego", "Gabriel", "Lucas"];
+
+      for (nome of nomes) {
+        var novoElemento = document.createElement("li");
+        novoElemento.textContent = nome;
+        var lista = document.querySelector("ul");
+        lista.appendChild(novoElemento);
+      }
+
+      var botao = document.getElementById("botao");
+      botao.onclick = function () {
+        var novoElemento = document.createElement("li");
+        var entrada = document.getElementById("entrada");
+        novoElemento.textContent = entrada.value;
+        var lista = document.querySelector("ul");
+        lista.appendChild(novoElemento);
+        entrada.value = "";
+      };
+    </script>
+  </body>
+</html>

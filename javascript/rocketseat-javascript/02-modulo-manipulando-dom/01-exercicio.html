@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso de JavaScript</title>
+  </head>
+  <body>
+    <button id="botao">Adicionar quadrado</button>
+
+    <script>
+      var botao = document.getElementById("botao");
+
+      botao.onclick = criaQuadrado;
+
+      function criaQuadrado() {
+        var corpo = document.querySelector("body");
+        var quadrado = document.createElement("div");
+        quadrado.style.height = 100;
+        quadrado.style.width = 100;
+        quadrado.style.marginTop = 5;
+        quadrado.style.backgroundColor = "red";
+        corpo.appendChild(quadrado);
+      }
+    </script>
+  </body>
+</html>
