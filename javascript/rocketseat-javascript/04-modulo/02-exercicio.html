@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso de JS</title>
+  </head>
+  <body>
+    <h1>Lista de Repositórios no GitHub</h1>
+    <p>
+      Digite, abaixo, um nome de usuário no GitHub para listar seus
+      repositórios.
+    </p>
+
+    <input type="text" name="user" />
+    <button onclick="listaRepos()">Adicionar</button>
+
+    <ul></ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      var inputElement = document.querySelector("input");
+      var lista = document.querySelector("ul");
+
+      function capturarTexto() {
+        var textoDigitado = inputElement.value;
+        return textoDigitado;
+      }
+
+      function listaRepos() {
+        var usuario = capturarTexto();
+        var url = "https://api.github.com/users/" + usuario + "/repos";
+
+        axios
+          .get(url)
+          .then(function (response) {
+            lista.innerHTML = "";
+            for (repo of response.data) {
+              var novoItem = document.createElement("li");
+              novoItem.textContent = repo.name;
+              lista.appendChild(novoItem);
+            }
+          })
+          .catch(function (error) {
+            console.warn(error);
+          });
+      }
+    </script>
+  </body>
+</html>
