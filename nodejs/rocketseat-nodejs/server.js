@@ -1,24 +1,20 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const requireDir = require("require-dir");
+const cors = require("cors");
 
 const app = express();
+app.use(express.json());
+app.use(cors());
 
 mongoose.connect("mongodb://localhost:27017/nodeapi", {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 requireDir("./src/models");
 
-const Product = mongoose.model("Product");
+// const Product = mongoose.model("Product");
 
-app.get("/", (req, res) => {
-  Product.create({
-    title: "React Native",
-    description: "Build native apps with React",
-    url: "http://github.com/facebook/reactnative",
-  });
-  return res.send("Hello Emerson and Node.js");
-});
-
+app.use("/api", require("./src/routes"));
 app.listen(3001);
