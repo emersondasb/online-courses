@@ -25,6 +25,12 @@ class Endereco extends Model {
       foreignKey: "endereco_id",
     });
   }
+  static associate(models) {
+    this.hasMany(models.Populacao, {
+      as: "populacoes",
+      foreignKey: "endereco_id",
+    });
+  }
 }
 
 module.exports = Endereco;

@@ -3,8 +3,10 @@ const databaseConfig = require("../config/database");
 
 const Endereco = require("../app/models/Endereco");
 const Usuario = require("../app/models/Usuario");
+const EstadoCivil = require("../app/models/EstadoCivil");
+const Populacao = require("../app/models/Populacao");
 
-const models = [Endereco, Usuario];
+const models = [Endereco, Usuario, EstadoCivil, Populacao];
 
 class Database {
   constructor() {
