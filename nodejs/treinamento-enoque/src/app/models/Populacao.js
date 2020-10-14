@@ -24,9 +24,6 @@ class Populacao extends Model {
       as: "estado_civil",
       foreignKey: "estado_civil_id",
     });
-  }
-
-  static associate(models) {
     this.belongsTo(models.Endereco, {
       as: "endereco",
       foreignKey: "endereco_id",

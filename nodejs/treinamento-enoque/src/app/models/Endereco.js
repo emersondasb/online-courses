@@ -24,8 +24,6 @@ class Endereco extends Model {
       as: "usuarios",
       foreignKey: "endereco_id",
     });
-  }
-  static associate(models) {
     this.hasMany(models.Populacao, {
       as: "populacoes",
       foreignKey: "endereco_id",

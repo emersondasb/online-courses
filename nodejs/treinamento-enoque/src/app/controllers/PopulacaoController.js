@@ -6,20 +6,24 @@ class PopulacaoController {
   async store(req, res) {
     const { nome, rg, cpf, endereco_id, estado_civil_id, email } = req.body;
 
-    const usuario = await Populacao.create({
-      nome,
-      rg,
-      cpf,
-      endereco_id,
-      estado_civil_id,
-      email,
-    });
-    return res.status(200).json(usuario);
+    try {
+      const usuario = await Populacao.create({
+        nome,
+        rg,
+        cpf,
+        endereco_id,
+        estado_civil_id,
+        email,
+      });
+      return res.status(200).json(usuario);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   async show(req, res) {
     const { id } = req.params;
-    const usuario = await Usuario.findByPk(id, {
+    const populacao = await Populacao.findByPk(id, {
       attributes: ["nome", "email", "rg", "endereco_id", "estado_civil_id"],
       include: [
         {
@@ -35,13 +39,13 @@ class PopulacaoController {
       ],
     });
 
-    if (!usuario) {
+    if (!populacao) {
       return res.status(404).json({
-        error: "Usuários não encontrado",
+        error: "População não encontrada",
       });
     }
 
-    return res.status(200).json(usuario);
+    return res.status(200).json(populacao);
   }
 
   async index(req, res) {
