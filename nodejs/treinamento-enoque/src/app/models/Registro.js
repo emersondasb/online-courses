@@ -1,10 +1,10 @@
 const { Sequelize, Model } = require("sequelize");
 
-class Populacao extends Model {
+class Registro extends Model {
   static init(sequelize) {
     super.init(
       {
-        registro: Sequelize.TEXT,
+        registro: Sequelize.STRING,
         usuario_id: Sequelize.INTEGER,
         populacao_id: Sequelize.INTEGER,
       },
@@ -17,17 +17,15 @@ class Populacao extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.Usuario, {
+    this.belongsTo(models.Usuario, {
       as: "usuarios",
-      foreignKey: "registro_id",
+      foreignKey: "usuario_id",
     });
-  }
-  static associate(models) {
-    this.hasMany(models.Populacao, {
-      as: "populacoes",
-      foreignKey: "registro_id",
+    this.belongsTo(models.Populacao, {
+      as: "populacao",
+      foreignKey: "populacao_id",
     });
   }
 }
 
-module.exports = Populacao;
+module.exports = Registro;

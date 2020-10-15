@@ -35,6 +35,10 @@ class Usuario extends Model {
       as: "endereco",
       foreignKey: "endereco_id",
     });
+    this.hasMany(models.Registro, {
+      as: "registro",
+      foreignKey: "usuario_id",
+    });
   }
 
   checarSenha(senha) {

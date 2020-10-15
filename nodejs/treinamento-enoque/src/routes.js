@@ -3,6 +3,7 @@ const EnderecoController = require("./app/controllers/EnderecoController");
 const UsuarioController = require("./app/controllers/UsuarioController");
 const PopulacaoController = require("./app/controllers/PopulacaoController");
 const EstadoCivilController = require("./app/controllers/EstadoCivilController");
+const RegistroController = require("./app/controllers/RegistroController");
 const SessionsController = require("./app/controllers/SessionController");
 const authMiddleware = require("./app/middlewares/auth");
 
@@ -31,6 +32,11 @@ routes.get("/populacoes", PopulacaoController.index);
 routes.post("/estados-civis", EstadoCivilController.store);
 routes.get("/estados-civis", EstadoCivilController.index);
 routes.put("/estados-civis/:id", EstadoCivilController.update);
+
+// Rotas referentes a REGISTROS
+routes.post("/registros", RegistroController.store);
+routes.get("/registros", RegistroController.index);
+routes.get("/registros/:id", RegistroController.show);
 
 // Rota de SESSÃO
 routes.post("/sessions", SessionsController.store);

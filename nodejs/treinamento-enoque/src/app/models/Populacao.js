@@ -28,6 +28,10 @@ class Populacao extends Model {
       as: "endereco",
       foreignKey: "endereco_id",
     });
+    this.hasMany(models.Registro, {
+      as: "registro",
+      foreignKey: "populacao_id",
+    });
   }
 }
 
