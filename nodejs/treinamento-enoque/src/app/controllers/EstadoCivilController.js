@@ -24,9 +24,7 @@ class EstadoCivilController {
 
   async update(req, res) {
     const { id } = req.params;
-
     const { nome } = req.body;
-
     const estadoCivil = await EstadoCivil.findByPk(id);
 
     if (!estadoCivil) {

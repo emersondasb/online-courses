@@ -30,7 +30,9 @@ class EnderecoController {
   }
 
   async index(req, res) {
-    const enderecos = await Endereco.findAll();
+    const enderecos = await Endereco.findAll({
+      attributes: ["id", "nome", "numero", "bairro", "cidade", "uf", "cep"],
+    });
     return res.status(200).json(enderecos);
   }
 
