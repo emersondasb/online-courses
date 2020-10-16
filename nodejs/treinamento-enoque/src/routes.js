@@ -15,13 +15,20 @@ const InfoController = require("./app/controllers/InfoController");
 
 routes.get("/", InfoController.index);
 
+// Rotas de criação de USUÁRIO e SESSÃO
+routes.post("/usuarios", UsuarioController.store);
+routes.post("/sessions", SessionsController.store);
+
+// Todas as rotas que vem depois desse middleware entram na verificação de autorização.
+routes.use(authMiddleware);
+
 // Rotas referentes a ENDEREÇOS
 routes.post("/enderecos", EnderecoController.store);
 routes.get("/enderecos/:id", EnderecoController.show);
 routes.put("/enderecos/:id", EnderecoController.update);
+routes.get("/enderecos", EnderecoController.index);
 
 // Rotas referentes a USUÁRIOS
-routes.post("/usuarios", UsuarioController.store);
 routes.get("/usuarios/:id", UsuarioController.show);
 routes.get("/usuarios", UsuarioController.index);
 
@@ -39,12 +46,5 @@ routes.put("/estados-civis/:id", EstadoCivilController.update);
 routes.post("/registros", RegistroController.store);
 routes.get("/registros", RegistroController.index);
 routes.get("/registros/:id", RegistroController.show);
-
-// Rota de SESSÃO
-routes.post("/sessions", SessionsController.store);
-
-// Todas as rotas que vem depois desse middleware entram na verificação de autorização.
-routes.use(authMiddleware);
-routes.get("/enderecos", EnderecoController.index);
 
 module.exports = routes;
