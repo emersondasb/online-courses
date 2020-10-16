@@ -1,3 +1,5 @@
+// Models são os objetos usados para registrar nossos dados no banco.
+
 const { Sequelize, Model } = require("sequelize");
 
 class Endereco extends Model {

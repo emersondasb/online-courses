@@ -1,3 +1,8 @@
+/* Arquivos do tipo migration determinam que tabelas nosso banco de dados terá.
+   São gerados a partir do comando ~ yarn sequelize migration:create --name=[NOME]
+   Após a definição da tabela, registramos com o comando ~ yarn sequelize db:migrate
+*/
+
 "use strict";
 
 module.exports = {

@@ -5,11 +5,11 @@ const Yup = require("yup");
 
 class RegistroController {
   async store(req, res) {
-
+    // Realiza validação no cadastro de dados.
     const schema = Yup.object().shape({
       registro: Yup.string().required(),
       usuario_id: Yup.number().required(),
-      populacao_id: Yup.number().required()
+      populacao_id: Yup.number().required(),
     });
 
     if (!(await schema.isValid(req.body))) {

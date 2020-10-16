@@ -3,9 +3,9 @@ const Endereco = require("../models/Endereco");
 const EstadoCivil = require("../models/EstadoCivil");
 const Yup = require("yup");
 
-
 class PopulacaoController {
   async store(req, res) {
+    // Realiza validação no cadastro de dados.
     const schema = Yup.object().shape({
       nome: Yup.string().required(),
       rg: Yup.string().required(),
@@ -18,7 +18,7 @@ class PopulacaoController {
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ erro: "Erro de validação" });
     }
-    
+
     const { nome, rg, cpf, endereco_id, estado_civil_id, email } = req.body;
 
     try {

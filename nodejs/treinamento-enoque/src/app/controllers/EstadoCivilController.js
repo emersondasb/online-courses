@@ -3,6 +3,7 @@ const Yup = require("yup");
 
 class EstadoCivilController {
   async store(req, res) {
+    // Realiza validação no cadastro de dados.
     const schema = Yup.object().shape({
       nome: Yup.string().required(),
     });

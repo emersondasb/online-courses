@@ -4,6 +4,7 @@ const Yup = require("yup");
 
 class UsuarioController {
   async store(req, res) {
+    // Realiza validação no cadastro de dados.
     const schema = Yup.object().shape({
       nome: Yup.string().required(),
       matricula: Yup.string().required().min(7).max(7),

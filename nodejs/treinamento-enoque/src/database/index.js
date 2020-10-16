@@ -1,3 +1,6 @@
+// Neste arquivo encontra-se a lista de todos os models de nossa aplicação.
+// Aqui realiza-se o mapeamento desses models junto aos seus relacionamentos.
+
 const Sequelize = require("sequelize");
 const databaseConfig = require("../config/database");
 

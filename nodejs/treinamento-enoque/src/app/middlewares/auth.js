@@ -2,6 +2,8 @@ const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
 const authConfig = require("../../config/auth");
 
+// Realiza a validação do token permitindo acesso a rotas restritas caso condição seja atendida.
+
 module.exports = async (req, res, next) => {
   const authHeader = req.headers.authorization;
 

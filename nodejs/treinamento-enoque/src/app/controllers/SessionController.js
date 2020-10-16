@@ -5,6 +5,7 @@ const Yup = require("yup");
 
 class SessionController {
   async store(req, res) {
+    // Realiza validação no cadastro de dados.
     const schema = Yup.object().shape({
       senha: Yup.string().required(),
       email: Yup.string().email().required(),

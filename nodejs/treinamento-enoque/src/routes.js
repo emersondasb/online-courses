@@ -1,3 +1,5 @@
+// Neste arquivo registramos todos os endpoints/rotas de nossa aplicação.
+
 const express = require("express");
 const EnderecoController = require("./app/controllers/EnderecoController");
 const UsuarioController = require("./app/controllers/UsuarioController");
