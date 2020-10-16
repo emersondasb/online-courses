@@ -1,9 +1,21 @@
 const Registro = require("../models/Registro");
 const Populacao = require("../models/Populacao");
 const Usuario = require("../models/Usuario");
+const Yup = require("yup");
 
 class RegistroController {
   async store(req, res) {
+
+    const schema = Yup.object().shape({
+      registro: Yup.string().required(),
+      usuario_id: Yup.number().required(),
+      populacao_id: Yup.number().required()
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ erro: "Erro de validação" });
+    }
+
     const { registro, usuario_id, populacao_id } = req.body;
 
     try {
@@ -36,7 +48,7 @@ class RegistroController {
   async index(req, res) {
     try {
       const registros = await Registro.findAll({
-        attributes: ["registro", "populacao_id", "usuario_id"],
+        attributes: ["id", "registro", "populacao_id", "usuario_id"],
       });
 
       if (!registros) {

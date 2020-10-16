@@ -1,6 +1,6 @@
 class InfoController {
   index(req, res) {
-    return res.json({ sistema: "Treinamento EasyCajup", version: "1.0.0" });
+    return res.json({ sistema: "Treinamento easyCAJUP", version: "1.0.0" });
   }
 }
 

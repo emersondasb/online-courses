@@ -1,7 +1,21 @@
 const Endereco = require("../models/Endereco");
+const Yup = require("yup");
 
 class EnderecoController {
   async store(req, res) {
+    const schema = Yup.object().shape({
+      nome: Yup.string().required(),
+      numero: Yup.string().required(),
+      bairro: Yup.string().required(),
+      cidade: Yup.string().required(),
+      uf: Yup.string().required(),
+      cep: Yup.string().required().min(8).max(8),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ erro: "Erro de validação" });
+    }
+
     const { nome, numero, bairro, cidade, uf, cep } = req.body;
     const endereco = await Endereco.create({
       nome,

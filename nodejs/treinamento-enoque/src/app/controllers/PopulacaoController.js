@@ -1,9 +1,24 @@
 const Populacao = require("../models/Populacao");
 const Endereco = require("../models/Endereco");
 const EstadoCivil = require("../models/EstadoCivil");
+const Yup = require("yup");
+
 
 class PopulacaoController {
   async store(req, res) {
+    const schema = Yup.object().shape({
+      nome: Yup.string().required(),
+      rg: Yup.string().required(),
+      cpf: Yup.string().required().min(11).max(11),
+      endereco_id: Yup.number().required(),
+      estado_civil_id: Yup.number().required(),
+      email: Yup.string().email().required(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ erro: "Erro de validação" });
+    }
+    
     const { nome, rg, cpf, endereco_id, estado_civil_id, email } = req.body;
 
     try {

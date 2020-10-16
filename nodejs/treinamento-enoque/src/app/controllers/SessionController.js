@@ -1,9 +1,19 @@
 const jwt = require("jsonwebtoken");
 const authCongig = require("../../config/auth");
 const User = require("../models/Usuario");
+const Yup = require("yup");
 
 class SessionController {
   async store(req, res) {
+    const schema = Yup.object().shape({
+      senha: Yup.string().required(),
+      email: Yup.string().email().required(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ erro: "Erro de validação" });
+    }
+
     const { email, senha } = req.body;
     const usuario = await User.findOne({
       where: { email },
